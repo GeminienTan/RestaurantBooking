@@ -10,6 +10,8 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -24,11 +26,12 @@
                 line-height: 1.8;
             }
             .jumbotron {
+                margin-bottom:0;
                 background-color: #f4511e;
                 color: #fff;
                 padding: 100px 25px;
                 font-family: Montserrat, sans-serif;
-                background-image: url("https://i2.wp.com/penangfoodie.com/wp-content/uploads/2019/12/Untitled-design-9-2.png?fit=1200%2C628&ssl=1");
+                background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(https://i2.wp.com/penangfoodie.com/wp-content/uploads/2019/12/Untitled-design-9-2.png?fit=1200%2C628&ssl=1);
                 background-size: cover;
             }
             .container-fluid {
@@ -96,8 +99,49 @@
                 line-height: 1.42857143 !important;
                 letter-spacing: 4px;
                 border-radius: 0;
-                font-family: Montserrat, sans-serif;
             }
+            .carousel-inner {
+                overflow: visible;
+            }
+            .menu-tab #tabs{
+                background-color: #948682;
+                color: #eee;
+            }
+            .menu-tab #tabs h6.section-title{
+                color: #eee;
+            }
+            .menu-tab #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+                color: #c9c2c0;
+                background-color: #6a5f5b;
+                border-color: transparent transparent #f3f3f3;
+            }
+            .menu-tab .nav-link {
+                border: 1px solid #000;
+                color: #2b2625;
+                font-size: 16px;
+                font-weight: 600;
+            }
+            .menu-tab .nav-link:hover {
+                background-color: #8a7b76;
+            }
+            .menu-tab thead{
+                color: #c9c2c0;
+                background-color: #4a4240;
+                border-color: transparent transparent #f3f3f3;
+            }
+            .menu-tab a{
+                text-decoration: none;
+                color: #333;
+                font-weight: 600;
+            }
+            .menu-tab {
+                margin-bottom:0;
+                background-color: #f4511e;
+                padding: 100px 25px;
+                background-image: linear-gradient(to bottom, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.8) 100%), url(https://t4.ftcdn.net/jpg/03/17/07/41/360_F_317074154_SWrR7ihvofoFUwNxbd0z5fF8qh707x3Q.jpg);
+                background-size: cover;
+            }
+
             .slideanim {visibility:hidden;}
             .slide {
                 animation-name: slide;
@@ -161,29 +205,31 @@
             @endif
         </div>-->
 
-        <div class="jumbotron" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(https://i2.wp.com/penangfoodie.com/wp-content/uploads/2019/12/Untitled-design-9-2.png?fit=1200%2C628&ssl=1)">
+        <div class="jumbotron" style="">
         <h1 class="display-4">Nourriture Savoureuse</h1>
-        <p class="lead">We pour happiness</p>
-        <hr class="my-4">
+        <p class="lead">All happiness depends on a leisurely meal. You don't need a silver fork to eat good food. </p><p>Coffee is always a good idea. When life gives you lemons, trade them for coffee.</p>
+        <hr class="bg-light">
         <p>Operation Hour: 11am - 10pm Everyday excepts Monday</p>
         <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Log in to booking</a>
+            <a class="btn btn-light btn-lg" href="#" role="button">Log in to reserve a table</a>
         </p>
         </div>
-
         <!-- Container (About Section) -->
         <div id="about" class="container-fluid bg-dark text-white">
         <div class="row">
-            <div class="col-sm-12 ">
+            <div class="col-sm-8 ">
             <h2>About Our Restaurant</h2><br>
             <h4>The Nourriture is located at Campbell Street. Tucked in England House, We're a small coffee house with an English cottage ambience. Serving aesthetic-looking food and drinks, slow down your day and unwind in this cozy cottage.</h4>
             </div>
+            <div class="col-sm-4 ">
+            <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536951746/new/warm_welcome.jpg" alt="Warm welcome" class="img-fluid">
+            </div>
         </div>
 
-        <hr>
-        <!-- Container (Services Section) -->
-        <div id="services" class="container-fluid text-center">
-        <h4>What we offer</h4>
+        </div>
+         <!-- Container (Services Section) -->
+         <div id="services" class="container-fluid text-center">
+        <h2>What we offer</h2>
         <br>
         <div class="row slideanim">
             <div class="col-sm-4">
@@ -205,63 +251,109 @@
         </div>
         </div>
 
-        </div>
+        <h2 class="text-center">Menu</h2>  
+        <section id="tabs" class="menu-tab">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav>
+                            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-food-tab" data-toggle="tab" href="#nav-food" role="tab" aria-controls="nav-food" aria-selected="true">Food</a>
+                                <a class="nav-item nav-link" id="nav-beverage-tab" data-toggle="tab" href="#nav-beverage" role="tab" aria-controls="nav-beverage" aria-selected="false">Beverage</a>
+                                <a class="nav-item nav-link" id="nav-dessert-tab" data-toggle="tab" href="#nav-dessert" role="tab" aria-controls="nav-dessert" aria-selected="false">Dessert</a>
+                            </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-food" role="tabpanel" aria-labelledby="nav-food-tab">
+                                <table class="table" cellspacing="0" width="80%">
+                                    <thead>
+                                        <tr>
+                                            <th>Food</th>
+                                            <th>Description</th>
+                                            <th>Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach ($items as $item)
+                                        @if($item->category == "food")
+                                        <tr>
+                                            <td><b>{{$item->name}}</b></td>
+                                            <td>{{$item->description}}</td>
+                                            <td><i>{{$item->price}}</i></td>
+                                        </tr>
+                                        @endif
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-beverage" role="tabpanel" aria-labelledby="nav-beverage-tab">
+                                <table class="table" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Beverage</th>
+                                            <th>Description</th>
+                                            <th>Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach ($items as $item)
+                                        @if($item->category == "beverage")
+                                        <tr>
+                                            <td><b>{{$item->name}}</b></td>
+                                            <td>{{$item->description}}</td>
+                                            <td><i>{{$item->price}}</i></td>
+                                        </tr>
+                                        @endif
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-dessert" role="tabpanel" aria-labelledby="nav-dessert-tab">
+                                <table class="table" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Dessert</th>
+                                            <th>Description</th>
+                                            <th>Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach ($items as $item)
+                                        @if($item->category == "dessert")
+                                        <tr>
+                                            <td><b>{{$item->name}}</b></td>
+                                            <td>{{$item->description}}</td>
+                                            <td><i>{{$item->price}}</i></td>
+                                        </tr>
+                                        @endif
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Container (Portfolio Section) -->
-        <div id="portfolio" class="container-fluid text-center bg-grey">
-        <h2>Portfolio</h2><br>
-        <h4>What we have created</h4>
-        <div class="row text-center slideanim">
+        <div id="portfolio" class="container-fluid text-center">
+        <h2>Gallery</h2><br>
+        <div class="row text-center">
+            @foreach ($items as $item)
+                @if($item->category == "food")
             <div class="col-sm-4">
             <div class="thumbnail">
-                <img src="paris.jpg" alt="Paris" width="400" height="300">
-                <p><strong>Paris</strong></p>
-                <p>Yes, we built Paris</p>
+                <img src="{{$item->photo}}" alt="Paris" width="400" height="300">
+                <p><strong>{{$item->name}}</strong></p>
             </div>
             </div>
-            <div class="col-sm-4">
-            <div class="thumbnail">
-                <img src="newyork.jpg" alt="New York" width="400" height="300">
-                <p><strong>New York</strong></p>
-                <p>We built New York</p>
-            </div>
-            </div>
-            <div class="col-sm-4">
-            <div class="thumbnail">
-                <img src="sanfran.jpg" alt="San Francisco" width="400" height="300">
-                <p><strong>San Francisco</strong></p>
-                <p>Yes, San Fran is ours</p>
-            </div>
-            </div>
-            <div class="col-sm-4">
-            <div class="thumbnail">
-                <img src="sanfran.jpg" alt="San Francisco" width="400" height="300">
-                <p><strong>San Francisco</strong></p>
-                <p>Yes, San Fran is ours</p>
-            </div>
-            </div>
-            <div class="col-sm-4">
-            <div class="thumbnail">
-                <img src="sanfran.jpg" alt="San Francisco" width="400" height="300">
-                <p><strong>San Francisco</strong></p>
-                <p>Yes, San Fran is ours</p>
-            </div>
-            </div>
-            <div class="col-sm-4">
-            <div class="thumbnail">
-                <img src="sanfran.jpg" alt="San Francisco" width="400" height="300">
-                <p><strong>San Francisco</strong></p>
-                <p>Yes, San Fran is ours</p>
-            </div>
-            </div>
-            <div class="col-sm-4">
-            <div class="thumbnail">
-                <img src="sanfran.jpg" alt="San Francisco" width="400" height="300">
-                <p><strong>San Francisco</strong></p>
-                <p>Yes, San Fran is ours</p>
-            </div>
-            </div>
+                @endif
+            @endforeach
         </div><br>
+        </div>
+
+        
         
         <h2>What our customers say</h2>
         <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
@@ -306,6 +398,12 @@
             });
         });
         })
+        $(document).ready(function(ev){
+    $('#custom_carousel').on('slide.bs.carousel', function (evt) {
+      $('#custom_carousel .controls li.active').removeClass('active');
+      $('#custom_carousel .controls li:eq('+$(evt.relatedTarget).index()+')').addClass('active');
+    })
+});
         </script>
 
     </body>
