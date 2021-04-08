@@ -111,7 +111,7 @@
               <h4 class="modal-title" id="profileModalLabel">Edit Profile</h4>
           </div>
           <div class="modal-body text-left">
-          <form action="updateUser" method="post">
+          <form action="{{'updateUser/'.Auth::guard('web')->user()->id}}" method="post">
           @csrf
               <div class="form-group">
                   <label for="name">Name</label>
@@ -126,12 +126,8 @@
                   <input type="text" class="form-control" id="contact_no" name="contact_no" value="{{Auth::guard('web')->user()->contact_number}}">
               </div>
               <div class="form-group">
-                  <label for="old_password">Old Password</label>
-                  <input type="password" class="form-control" id="old_password" name="old_password">
-              </div>
-              <div class="form-group">
                   <label for="new_password">New Password</label>
-                  <input type="password" class="form-control" id="new_password" name="new_password">
+                  <input type="password" class="form-control" id="password" name="password">
               </div>
               <input type="hidden" name="id" value="{{Auth::guard('web')->user()->id}}">
               <button type="submit" class="btn btn-primary">Save Changes</button>

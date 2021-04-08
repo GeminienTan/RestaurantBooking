@@ -7,6 +7,7 @@ use App\Models\Item;
 use App\Models\Reservation;
 use App\Models\Feedback;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -28,14 +29,18 @@ class UserController extends Controller
             $user->remember_token  = $req->remember_token;
             return $user;
         }
-        
-        public function update(Request $req, $id){
-            $user=User::findOrFail($id);
-            $user->update($req->all());
-            $user->role = 'user';
-            $user->is_super = false;
-            $user->remember_token  = $req->remember_token;
-            return $user;
+
+        public function updateUser(Request $req, $id){
+            $this->validate($req, [
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users',
+                'contact_number' => 'required|min:10|max:11',
+                'password' => 'required|string|min:8'
+            ]);
+            $user = User::find($req->id);
+            $user->status = $req->status;
+            $user->save();
+            return redirect("user")->with('success','Record Updated');
         }
         /*
         public function destroy($id){
