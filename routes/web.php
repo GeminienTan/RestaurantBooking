@@ -1,6 +1,6 @@
 <?php
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
@@ -30,6 +30,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//register admin
+Route::get('/register/admin',[RegisterController::class,'showAdminRegisterForm']);
+Route::post('/register/admin', [RegisterController::class,'createAdmin']);

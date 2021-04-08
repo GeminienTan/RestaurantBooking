@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -29,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -52,10 +53,18 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'contact_number' => ['required', 'min:10', 'max:11'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
+    /**
+    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+    */
+    public function showAdminRegisterForm()
+    {
+     return view('auth.register', ['url' => 'admin']);
+    }
     /**
      * Create a new user instance after a valid registration.
      *
@@ -68,6 +77,26 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'contact_number'=>$data['contact_number'],
         ]);
+    }
+
+    /**
+    * @param Request $request
+    *
+    * @return \Illuminate\Http\RedirectResponse
+    */
+    protected function createAdmin(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $user=new User;
+        $user->name= $request->name;
+        $user->email= $request->email;
+        $user->password= Hash::make($request->password);
+        $user->contact_number= $request->contact_number;
+        $user->role = 'admin';
+        $user->save();
+        
+        return redirect()->intended('login');
     }
 }
