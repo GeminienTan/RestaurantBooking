@@ -22,7 +22,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
- 
+
     public function reservations(){
         return $this->hasMany('App\Models\Reservation');
     }

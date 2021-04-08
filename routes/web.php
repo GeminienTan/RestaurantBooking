@@ -35,11 +35,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/register/admin',[RegisterController::class,'showAdminRegisterForm']);
 Route::post('/register/admin', [RegisterController::class,'createAdmin']);
 
-//crud reservation
-Route::post('/addReservation',[ReservationController::class,'store']);
 
-//crud feedback
-Route::post('/addFeedback',[FeedbackController::class,'store']);
+//feedback CRUD
+Route::post('/addFeedback', [FeedbackController::class, 'store']);
+Route::get('/user', [FeedbackController::class, 'index' ]);
+
+//reservation CRUD
+Route::post('/addReservation', [ReservationController::class, 'store']);
+//Route::get('/user', [ReservationController::class, 'index']);
+
 
 //logout
 Route::get('logout', [LoginController::class, 'logout']);

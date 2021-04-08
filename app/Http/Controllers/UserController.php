@@ -14,11 +14,19 @@ class UserController extends Controller
 {
         public function index(){
             $users = User::all();
+<<<<<<< HEAD
+            $reservations = Reservation::with('users')->get();
+            
+            return view('user', compact('reservations', 'items'));
+
+            
+=======
             //$reservations = Reservation::all();
             //$reservations = Reservation::with('users')->get();
             //$items = Item::all();
             //return view('user', compact('reservations', 'items'));
             return view('user');
+>>>>>>> 86642c43531606db590a21a8f23169d06d5c980e
         }
         
         public function store(Request $req){                
