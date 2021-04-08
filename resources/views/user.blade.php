@@ -28,7 +28,6 @@
   </style>
 </head>
 <body>
-
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -229,7 +228,8 @@
                 <div class="panel panel-primary">
                 <div class="panel-heading">MAKE RESERVATION</div>
                 <div class="panel-body">
-                    <form>
+                    <form action="addReservation" method="POST">
+                        @csrf
                         <div class="form-group">
                             <label for="num_of_person">Number of Person</label>
                             <input type="number" class="form-control" id="num_of_person" name="num_of_person" aria-describedby="peopleHelp" required>

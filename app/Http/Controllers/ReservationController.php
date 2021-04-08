@@ -12,13 +12,24 @@ class ReservationController extends Controller
     }
 
     public function store(Request $req){
-        
+
         $this->validate($req, [
             'num_of_person' => 'required',
             'booking_date' => 'required',
+            'message' => 'max:1000',
         ]);
 
-        return Reservation::create($req->all());
+        $reservation = new Reservation();
+        $reservation->num_of_person = $req->service;
+        $reservation->booking_date = $req->booking_date;
+        $reservation->message = $req->message;
+        $reservation->comment = $req->comment;
+        $reservation->user_id = 1;
+        
+        $reservation ->save();
+
+        return redirect("user")->with('success', 'Record added successfully!');
+        //return Reservation::create($req->all());
     }
 
     public function update(Request $req, $id){
