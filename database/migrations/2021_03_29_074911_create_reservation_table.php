@@ -18,6 +18,7 @@ class CreateReservationTable extends Migration
             $table->integer('num_of_person');
             $table->dateTime('booking_date');
             $table->longText('message');
+            $table->enum('status', ['pending', 'cancel', 'approved','rejected']);
             $table->integer('user_id')->foreign()->references('id')->on('users');
             $table->timestamps();
         });
@@ -30,6 +31,6 @@ class CreateReservationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reservation');
+        Schema::dropIfExists('reservations');
     }
 }
