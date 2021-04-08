@@ -89,15 +89,7 @@
           </div>
         <h4><b><span class="inline-icon material-icons md-24">history</span> Feedback History</b></h4>
         <hr>
-        @foreach($feedbacks as $feedback)
-        <ul style="list-style-type:none;padding-left: 0;">    
-        <li>Service: {{$feedback['service']}}</li>   
-        <li>Food: {{$feedback['food']}} </li>
-        <li>Environment: {{$feedback['environment']}} </li>
-        <li>Comment: {{$feedback['comment']}} </li>
-        <li>Datetime: {{$feedback['created_at']}} </li>
-        </ul>
-        @endforeach
+       
         </div>
       </div>
 
@@ -125,7 +117,7 @@
               </div>
               <div class="form-group">
                   <label for="contact_no">Contact Number</label>
-                  <input type="text" class="form-control" id="contact_no" name="contact_no" value="{{Auth::guard('web')->user()->contact_number}}">
+                  <input type="text" class="form-control" id="contact_no" name="contact_number" value="{{Auth::guard('web')->user()->contact_number}}">
               </div>
               <div class="form-group">
                   <label for="new_password">New Password</label>
@@ -204,15 +196,7 @@
                 <th>Delete</th>
               </thead>
               <tbody>
-              @foreach($feedbacks as $feedback)
-                <tr>
-                <td>{{$feedback['service']}}</td>
-                <td>{{$feedback['food']}}</td>
-                <td>{{$feedback['environment']}}</td>
-                <td>{{$feedback['comment']}}/td>
-                <td><a type="button" href=""><span class="inline-icon material-icons md-24">delete</span></a></td>
-                </tr>
-              @endforeach
+              
               </tbody>
               <!--"deleteReservation/".$reservation['id']-->
               </table>

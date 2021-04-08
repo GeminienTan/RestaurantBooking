@@ -14,19 +14,11 @@ class UserController extends Controller
 {
         public function index(){
             $users = User::all();
-<<<<<<< HEAD
-            $reservations = Reservation::with('users')->get();
-            
-            return view('user', compact('reservations', 'items'));
-
-            
-=======
             //$reservations = Reservation::all();
             //$reservations = Reservation::with('users')->get();
             //$items = Item::all();
             //return view('user', compact('reservations', 'items'));
             return view('user');
->>>>>>> 86642c43531606db590a21a8f23169d06d5c980e
         }
         
         public function store(Request $req){                
@@ -38,16 +30,31 @@ class UserController extends Controller
             return $user;
         }
 
-        public function updateUser(Request $req, $id){
+        /*public function updateUser(Request $req, $id){
             $this->validate($req, [
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
                 'contact_number' => 'required|min:10|max:11',
                 'password' => 'required|string|min:8'
             ]);
-            $user = User::find($req->id);
-            $user->status = $req->status;
-            $user->save();
+    
+            $data = User::find($req->id);
+            $data->name = $req->name;
+            $data->email = $req->email;
+            $data->contact_number = $req->contact_number;
+            $data->password = $req->password;
+            $data->save();
+            return redirect("user")->with('success','Record Updated');
+    
+        }*/
+        function updateUser(Request $req)
+        {
+            $data = User::find($req->id);
+            $data->name = $req->name;
+            $data->email = $req->email;
+            $data->contact_number = $req->contact_number;
+            $data->password = $req->password;
+            $data->save();
             return redirect("user")->with('success','Record Updated');
         }
         /*
