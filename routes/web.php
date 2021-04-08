@@ -22,8 +22,9 @@ Route::view('/login', 'login');
 
 Route::get('/', [ItemController::class,'index']);
  
+//user
 Route::get('/user', [UserController::class,'index']);
-Route::post('updatUser/{id}', [UserController::class, 'updateUser']);
+Route::post('updateUser/{id}', [UserController::class, 'updateUser']);
 
 Route::get('/restaurant', [ItemController::class,'index']);
  
