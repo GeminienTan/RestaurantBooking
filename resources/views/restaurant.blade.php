@@ -1,744 +1,410 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
+        <title>Nourriture Savoureuse</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Northstreet Restaurant">
-    <meta name="author" content="A.K.">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <title>Restaurant Northstreet</title>
+        <!-- Styles -->
+        <style>
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
+        </style>
 
+        <style>
+            body {
+                font: 400 15px Lato, sans-serif;
+                line-height: 1.8;
+            }
+            .jumbotron {
+                margin-bottom:0;
+                background-color: #f4511e;
+                color: #fff;
+                padding: 100px 25px;
+                font-family: Montserrat, sans-serif;
+                background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(https://i2.wp.com/penangfoodie.com/wp-content/uploads/2019/12/Untitled-design-9-2.png?fit=1200%2C628&ssl=1);
+                background-size: cover;
+            }
+            .container-fluid {
+                padding: 60px 50px;
+            }
+            .thumbnail {
+                padding: 0 0 15px 0;
+                border: none;
+                border-radius: 0;
+            }
+            .thumbnail img {
+                width: 250px;
+                height:200px;
+                margin-bottom: 10px;
+            }
+            .carousel-control.right, .carousel-control.left {
+                background-image: none;
+                color: #000;
+            }
+            .carousel-indicators li {
+                border-color: grey;
+            }
+            .carousel-indicators li.active {
+                background-color: #000;
+            }
+            .item h4 {
+                font-size: 19px;
+                line-height: 1.375em;
+                font-weight: 400;
+                font-style: italic;
+                margin: 70px 0;
+            }
+            .item span {
+                font-style: normal;
+            }
+            .panel {
+                border: 1px solid #000; 
+                border-radius:0 !important;
+                transition: box-shadow 0.5s;
+            }
+            .panel:hover {
+                box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+            }
+            .panel-footer .btn:hover {
+                border: 1px solid #f4511e;
+                background-color: #fff !important;
+                color: #f4511e;
+            }
+            .panel-heading {
+                color: #fff !important;
+                background-color: #f4511e !important;
+                padding: 25px;
+                border-bottom: 1px solid transparent;
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                border-bottom-left-radius: 0px;
+                border-bottom-right-radius: 0px;
+            }
+            .navbar {
+                margin-bottom: 0;
+                background-color: #000;
+                z-index: 9999;
+                border: 0;
+                font-size: 12px !important;
+                line-height: 1.42857143 !important;
+                letter-spacing: 4px;
+                border-radius: 0;
+            }
+            .carousel-inner {
+                overflow: visible;
+            }
+            .menu-tab #tabs{
+                background-color: #948682;
+                color: #eee;
+            }
+            .menu-tab #tabs h6.section-title{
+                color: #eee;
+            }
+            .menu-tab #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+                color: #c9c2c0;
+                background-color: #6a5f5b;
+                border-color: transparent transparent #f3f3f3;
+            }
+            .menu-tab .nav-link {
+                border: 1px solid #000;
+                color: #2b2625;
+                font-size: 16px;
+                font-weight: 600;
+            }
+            .menu-tab .nav-link:hover {
+                background-color: #8a7b76;
+            }
+            .menu-tab thead{
+                color: #c9c2c0;
+                background-color: #4a4240;
+                border-color: transparent transparent #f3f3f3;
+            }
+            .menu-tab a{
+                text-decoration: none;
+                color: #333;
+                font-weight: 600;
+            }
+            .menu-tab {
+                margin-bottom:0;
+                background-color: #f4511e;
+                padding: 100px 25px;
+                background-image: linear-gradient(to bottom, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.8) 100%), url(https://t4.ftcdn.net/jpg/03/17/07/41/360_F_317074154_SWrR7ihvofoFUwNxbd0z5fF8qh707x3Q.jpg);
+                background-size: cover;
+            }
+            
+            #gallery {
+                margin-bottom:0;
+                background-color: #E5E8E1;
+            }
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
-
-    <!-- Custom Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
-
-    <!-- Custom CSS -->  
-    <link rel="stylesheet" href="{{ asset('css/restaurant.js') }}" type="text/css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-</head>
-
-<body id="myPage"  data-spy="scroll" data-target=".navbar" data-offset="60">
-
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-        <a class="navbar-brand" href="#">Restaurant Northstreet</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#menu">Menu</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#service">Service</a>
-                </li>  
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
-                </li>  
-            </ul>
-        </div>  
-    </nav>
-
-    <div class="jumbotron">
-        <div class="container-fluid">
-            <div class="header-content-inner">
-                <h1>Welcome to Northstreet restaurant</h1> 
-                <h3>We are proud of our long history of making delicious meals, warm and 
-                friendly atmosphere and professional staff.</h3>
-            </div>
-        </div>
-    </div>
-
-    <section class="bg-about bg-section" id="about">
-        <div class="container-fluid">
-            <h1 class="container-h1">About</h1>
-            <div class="row">
-                <div class="col-sm-5">
-
-                    <div class="hov-img">
-                        <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536951746/new/warm_welcome.jpg" alt="Warm welcome" class="hov-img-bottom img-fluid">
-                        <div class="hov-img-top hov-img-slideup">
-                            <div class="hov-img-text">
-                                <h5>Warm welcome</h5>
-                                <p>It had separate tables, a menu, and specialized in soups made with a base of meat and eggs, which were said to be restaurants or, in English "restoratives".</p>
-                            </div>
-                        </div>
-                    </div>                    
-
-                    <div class="hov-img">
-                        <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536951746/new/delicious_meals.jpg" alt="Delicious meals" class="hov-img-bottom img-fluid">
-                        <div class="hov-img-top hov-img-slideup">
-                            <div class="hov-img-text">
-                                <h5>Delicious meals</h5>
-                                <p> In about 1765 a new kind of eating establishment, called a "Bouillon", was opened on rue des Poulies, near the Louvre, by a man named Boulanger.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hov-img">
-                        <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536951746/new/professional_staff.jpg" alt="Professional staff" class="hov-img-bottom img-fluid">
-                        <div class="hov-img-top hov-img-slideup">
-                            <div class="hov-img-text">
-                                <h5>Professional staff</h5>
-                                <p>For centuries Paris had taverns which served food at large common tables, but they were notoriously crowded, noisy, not very clean, and served food of dubious quality.</p>
-                            </div>
-                        </div>
-                    </div>
-                   
-                </div>
-
-                <div class="col-sm-7">
-                    <div class="row ">
-                        <div class="restaurant-history slideanim text-center">
-                            <h3 class="section-heading">Restaurant Northstreet</h3>
-                            <p class="about-history first">The modern idea of a restaurant – as well as the term itself – appeared in Paris in the 18th century. For centuries Paris had taverns which served food at large common tables, but they were notoriously crowded, noisy, not very clean, and served food of dubious quality. In about 1765 a new kind of eating establishment, called a "Bouillon", was opened on rue des Poulies, near the Louvre, by a man named Boulanger.<br /> <br >
-                            It had separate tables, a menu, and specialized in soups made with a base of meat and eggs, which were said to be restaurants or, in English "restoratives". Other similar bouillons soon opened around Paris.
-                            In about 1765 a new kind of eating establishment, called a "Bouillon", was opened on rue des Poulies, near the Louvre, by a man named Boulanger.
-                            It had separate tables, a menu, and specialized in soups made with a base of meat and eggs, which were said to be restaurants or, in English "restoratives". Other similar bouillons soon opened around Paris.
-                            </p>
-
-                            <button type="button" class="btn more" id="more" data-toggle="collapse" data-target="#demo">More</button>
-                            <div id="demo" class="collapse">  
-                                <p class="about-history"> Thanks to Boulanger and his imitators, these soups moved from the category of remedy into the category of health food and ultimately into the category of ordinary food. Their existence was predicated on health, not gustatory, requirements.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-            </div>     
-        </div>
-    </section>
-
-    <section class="bg-menu bg-section" id="menu">
-        <div class="container-fluid">
-            <h1 class="container-h1">Menu</h1>
-            <div class="row">
-                
-                    <!-- Nav pills -->
-                    <ul class="nav nav-pills" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="pill" href="#breakfast">Breakfast</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#lunch">Lunch</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#dinner">Dinner</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#dessert">Dessert</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#salads">Salads</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#drinks">Drinks</a>
-                        </li>
-                    </ul>
-                    
-
-                    <!-- Tab panes -->
-                    <div class="tab-content slideanim">
-                        <div id="breakfast" class="tab-pane fade show active">
-                            <div class="row">
-                                <div class="col-sm-7">
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Spanish tortilla<span class="badge pull-right">5.90 €</span></h4>
-                                          <p class="list-group-item-text">potatoes, onion, olive oil, free-range eggs</p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Quick fish cakes<span class="badge pull-right">6.80 €</span></h4>
-                                          <p class="list-group-item-text">skinless cod, pollock fillets, Maris Piper, flour, olive oil, fresh green herbs, chives, mayonnaise, eggs</p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Wild rice salad<span class="badge pull-right">5.20 €</span></h4>
-                                          <p class="list-group-item-text">mixed rice, wild and long-grain, mixed nuts, fresh basil, fresh mint, dried apricots, extra virgin olive oil
-                                          </p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Chicken milanese with spaghetti<span class="badge pull-right">8.70 €</span></h4>
-                                          <p class="list-group-item-text">cloves of garlic, fresh basil, olive oil, plum tomatoes, skinless free-range chicken breasts, plain flour, free-range eggs, breadcrumbs, Parmesan cheese, dried spaghetti</p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Mango lassi<span class="badge pull-right">3.10 €</span></h4>
-                                          <p class="list-group-item-text">green cardamom pods , optional, ripe mangos, low-fat natural yoghurt, ice cubes, runny honey
-                                          </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-5">
-                                    <div class="right-cover">
-                                        <h3>Breakfast</h3>
-                                        <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536951905/new/breakfast.jpg" class="menu-img img-fluid" alt="breakfast-img">
-                                    </div>
-                                </div>
-                            </div>      
-                        </div>
-                        <div id="lunch" class="tab-pane fade">
-                            <div class="row">
-                                <div class="col-sm-7">
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Spanish tortilla<span class="badge pull-right">5.90 €</span></h4>
-                                          <p class="list-group-item-text">potatoes, onion, olive oil, free-range eggs</p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Quick fish cakes<span class="badge pull-right">6.80 €</span></h4>
-                                          <p class="list-group-item-text">skinless cod, pollock fillets, Maris Piper, flour, olive oil, fresh green herbs, chives, mayonnaise, eggs</p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Wild rice salad<span class="badge pull-right">5.20 €</span></h4>
-                                          <p class="list-group-item-text">mixed rice, wild and long-grain, mixed nuts, fresh basil, fresh mint, dried apricots, extra virgin olive oil
-                                          </p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Chicken milanese with spaghetti<span class="badge pull-right">8.70 €</span></h4>
-                                          <p class="list-group-item-text">cloves of garlic, fresh basil, olive oil, plum tomatoes, skinless free-range chicken breasts, plain flour, free-range eggs, breadcrumbs, Parmesan cheese, dried spaghetti</p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Mango lassi<span class="badge pull-right">3.10 €</span></h4>
-                                          <p class="list-group-item-text">green cardamom pods , optional, ripe mangos, low-fat natural yoghurt, ice cubes, runny honey
-                                          </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-5">
-                                    <div class="right-cover">
-                                        <h3>Lunch</h3>
-                                        <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536951906/new/lunch.jpg" class="menu-img img-fluid" alt="brekfast-img">
-                                    </div>
-                                </div>
-                            </div>  
-                        </div>
-                        <div id="dinner" class="tab-pane fade">
-                            <div class="row">
-                                <div class="col-sm-7">
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Spanish tortilla<span class="badge pull-right">5.90 €</span></h4>
-                                          <p class="list-group-item-text">potatoes, onion, olive oil, free-range eggs</p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Quick fish cakes<span class="badge pull-right">6.80 €</span></h4>
-                                          <p class="list-group-item-text">skinless cod, pollock fillets, Maris Piper, flour, olive oil, fresh green herbs, chives, mayonnaise, eggs</p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Wild rice salad<span class="badge pull-right">5.20 €</span></h4>
-                                          <p class="list-group-item-text">mixed rice, wild and long-grain, mixed nuts, fresh basil, fresh mint, dried apricots, extra virgin olive oil
-                                          </p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Chicken milanese with spaghetti<span class="badge pull-right">8.70 €</span></h4>
-                                          <p class="list-group-item-text">cloves of garlic, fresh basil, olive oil, plum tomatoes, skinless free-range chicken breasts, plain flour, free-range eggs, breadcrumbs, Parmesan cheese, dried spaghetti</p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Mango lassi<span class="badge pull-right">3.10 €</span></h4>
-                                          <p class="list-group-item-text">green cardamom pods , optional, ripe mangos, low-fat natural yoghurt, ice cubes, runny honey
-                                          </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-5">
-                                    <div class="right-cover">
-                                        <h3>Dinner</h3>
-                                        <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536951906/new/dinner.jpg" class="menu-img img-fluid" alt="brekfast-img">
-                                    </div>    
-                                </div>
-                            </div>
-                        </div>
-                        <div id="dessert" class="tab-pane fade">
-                            <div class="row">
-                                <div class="col-sm-7">
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Spanish tortilla<span class="badge pull-right">5.90 €</span></h4>
-                                          <p class="list-group-item-text">potatoes, onion, olive oil, free-range eggs</p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Quick fish cakes<span class="badge pull-right">6.80 €</span></h4>
-                                          <p class="list-group-item-text">skinless cod, pollock fillets, Maris Piper, flour, olive oil, fresh green herbs, chives, mayonnaise, eggs</p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Wild rice salad<span class="badge pull-right">5.20 €</span></h4>
-                                          <p class="list-group-item-text">mixed rice, wild and long-grain, mixed nuts, fresh basil, fresh mint, dried apricots, extra virgin olive oil
-                                          </p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Chicken milanese with spaghetti<span class="badge pull-right">8.70 €</span></h4>
-                                          <p class="list-group-item-text">cloves of garlic, fresh basil, olive oil, plum tomatoes, skinless free-range chicken breasts, plain flour, free-range eggs, breadcrumbs, Parmesan cheese, dried spaghetti</p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Mango lassi<span class="badge pull-right">3.10 €</span></h4>
-                                          <p class="list-group-item-text">green cardamom pods , optional, ripe mangos, low-fat natural yoghurt, ice cubes, runny honey
-                                          </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-5">
-                                    <div class="right-cover">
-                                        <h3>Dessert</h3>
-                                        <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536951905/new/dessert.jpg" class="menu-img img-fluid" alt="brekfast-img">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="salads" class="tab-pane fade">
-                            <div class="row">
-                                <div class="col-sm-7">
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Spanish tortilla<span class="badge pull-right">5.90 €</span></h4>
-                                          <p class="list-group-item-text">potatoes, onion, olive oil, free-range eggs</p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Quick fish cakes<span class="badge pull-right">6.80 €</span></h4>
-                                          <p class="list-group-item-text">skinless cod, pollock fillets, Maris Piper, flour, olive oil, fresh green herbs, chives, mayonnaise, eggs</p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Wild rice salad<span class="badge pull-right">5.20 €</span></h4>
-                                          <p class="list-group-item-text">mixed rice, wild and long-grain, mixed nuts, fresh basil, fresh mint, dried apricots, extra virgin olive oil
-                                          </p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Chicken milanese with spaghetti<span class="badge pull-right">8.70 €</span></h4>
-                                          <p class="list-group-item-text">cloves of garlic, fresh basil, olive oil, plum tomatoes, skinless free-range chicken breasts, plain flour, free-range eggs, breadcrumbs, Parmesan cheese, dried spaghetti</p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Mango lassi<span class="badge pull-right">3.10 €</span></h4>
-                                          <p class="list-group-item-text">green cardamom pods , optional, ripe mangos, low-fat natural yoghurt, ice cubes, runny honey
-                                          </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-5">
-                                    <div class="right-cover">
-                                        <h3>Salads</h3>
-                                        <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536951906/new/salads.jpg" class="menu-img img-fluid" alt="brekfast-img">
-                                    </div>    
-                                </div>
-                            </div>
-                        </div>
-                        <div id="drinks" class="tab-pane fade">
-                            <div class="row">
-                                <div class="col-sm-7">
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Spanish tortilla<span class="badge pull-right">5.90 €</span></h4>
-                                          <p class="list-group-item-text">potatoes, onion, olive oil, free-range eggs</p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Quick fish cakes<span class="badge pull-right">6.80 €</span></h4>
-                                          <p class="list-group-item-text">skinless cod, pollock fillets, Maris Piper, flour, olive oil, fresh green herbs, chives, mayonnaise, eggs</p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Wild rice salad<span class="badge pull-right">5.20 €</span></h4>
-                                          <p class="list-group-item-text">mixed rice, wild and long-grain, mixed nuts, fresh basil, fresh mint, dried apricots, extra virgin olive oil
-                                          </p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Chicken milanese with spaghetti<span class="badge pull-right">8.70 €</span></h4>
-                                          <p class="list-group-item-text">cloves of garlic, fresh basil, olive oil, plum tomatoes, skinless free-range chicken breasts, plain flour, free-range eggs, breadcrumbs, Parmesan cheese, dried spaghetti</p>
-                                        </li>
-                                        <li class="list-group-item">
-                                          <h4 class="list-group-item-heading">Mango lassi<span class="badge pull-right">3.10 €</span></h4>
-                                          <p class="list-group-item-text">green cardamom pods , optional, ripe mangos, low-fat natural yoghurt, ice cubes, runny honey
-                                          </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-5">
-                                    <div class="right-cover">
-                                        <h3>Drink</h3>
-                                        <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536951906/new/drink.jpg" class="menu-img img-fluid" alt="brekfast-img">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>    
-                    </div>             
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-service bg-section" id="service">
-        <div class="container-fluid text-center">
-            <h1 class="container-h1">Service</h1>
-
-            <div class="row service-round-3 slideanim">
-                <div class="col-sm-4 text-center round">
-                    <div class="service-round b-party">
-                        <i class="fa fa-4x fa fa-birthday-cake sr-icons"></i>
-                    </div>
-                    <h4>Birthday party</h4>
-                    <p>For more information please contact us.</p>
-                </div>
-                <div class="col-sm-4 text-center round">
-                    <div class="service-round wedding">
-                        <i class="fa fa-4x fa fa-heart sr-icons"></i>
-                    </div>    
-                    <h4>Wedding</h4>
-                    <p>For more information please contact us</p>
-                </div>
-                <div class="col-sm-4 text-center round">
-                    <div class="service-round b-dinner">
-                        <i class="fa fa-4x fa fa-suitcase  sr-icons"></i>
-                    </div>
-                    <h4>Business dinner</h4>
-                    <p>For more information please contact us.</p>
-                </div>
-            </div>
-            <a href="#contact" class="btn">Contact us</a>
-        </div>
-    </section>
-
-    
-    
-
-    <section id="gallery" class="bg-gallery no-padding">
-        <div class="container-fluid">
-            <h3>Gallery</h3>
-            <hr class="hr-h3s">
-            <div class="row no-gutter gallery slideanim"> 
-                
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#" class="portfolio-link">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-instagram fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536952203/new/s1.jpg" class="img-fluid
-                        " alt="">     
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#" class="portfolio-link">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-instagram fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536952203/new/s2.jpg" class="img-fluid" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#" class="portfolio-link">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-instagram fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536952203/new/s3.jpg" class="img-fluid" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#" class="portfolio-link">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-instagram fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536952203/new/s4.jpg" class="img-fluid" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#" class="portfolio-link">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-instagram fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536952203/new/s5.jpg" class="img-fluid" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#" class="portfolio-link">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-instagram fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536952203/new/s6.jpg" class="img-fluid" alt="">
-                    </a>
-                </div>
-            </div>
-            <div class="row more-img">
-
-                    <div class="to-gallery">
-                        <h4>For more pictures visit us on</h4>
-                        <div class="social-networks">
-                            <a href="https://www.instagram.com" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
-                            <a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
-                        </div>
-                    </div>
-                
-            </div>
-
-        </div>
-    </section>
-
-    <section class="bg-staff" id="staff">
-        <div class="container-fluid">
-            <h3>Our staff</h3>
-            <hr class="hr-h3s"> 
-                <div class="row text-center slideanim thumbnail-row">
-                    <div class="col-sm-3">
-                        <div class="staff">
-                            <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536952566/new/manager.jpg" class="" alt="chef-img" style="width:170px; height: 170px">
-                            <h5 class="">John Johnson</h5>
-                            <h6>Manager</h6>    
-                        </div>
-                     </div>
-                     <div class="col-sm-3">  
-                        <div class="staff">
-                            <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536952565/new/chef1.jpg" class="" alt="chef-img" style="width:170px; height: 170px">
-                            <h5 class="">Anna Schmidt</h5>
-                            <h6>Chef</h6>         
-                        </div>
-                    </div>  
-                    <div class="col-sm-3">  
-                        <div class="staff">
-                            <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536952566/new/chef3.jpg" class="" alt="chef-img" style="width:170px; height: 170px">
-                            <h5 class="">Ivan Gonzales</h5>
-                            <h6>Chef</h6>
-                        </div>
-                    </div>
-                      <div class="col-sm-3">  
-                        <div class="staff">
-                            <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536952566/new/chef2.jpg" class="" alt="chef-img" style="width:170px; height: 170px">
-                            <h5 class="">Joseph Martinez</h5>
-                            <h6>Chef</h6>
-                        </div>
-                    </div>
-                </div>
-        </div>
-    </section>
-
-    <section class="bg-testimonials" id="testimonials">
-        <div class="container-fluid">
-            <h3 class="">What people say about us</h3>
-            <hr class="hr-testimonials">
-            <div class="row slideanim">    
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ul class="carousel-indicators">
-                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                      <li data-target="#myCarousel" data-slide-to="1"></li>
-                      <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ul>
-
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox">
-                      <div class="carousel-item active">
-                            <h4>The atmosphere in restaurant is friendly, and the
-                            dishes are delicious.</h4>
-                            <h5>Mark Gross</h5>
-                      </div>
-
-                      <div class="carousel-item">
-                            <h4>Delicious meals, warm welcome, excellent service.</h4>
-                            <h5>Nina Hansen</h5>
-                      </div>
-                    
-                      <div class="carousel-item">
-                            <h4>Definitely my favourite restaurant, friendly, clean, 
-                            delicious meals.</h4>
-                            <h5>Maria Fernandez</h5>
-                      </div>
-                    </div>
-
-                    <!-- Left and right controls -->
-                    <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#myCarousel" data-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </a>
-                </div>
-            </div>
-        </div>       
-    </section>
-
-    <section class="bg-contact bg-section" id="contact">
-        <div class="container-fluid">
-            <h1 class="container-h1">Contact us</h1>
-            <div class="row slideanim">
-                <div class="col-md-6 col-sm-6 contact-left">
-                    <div class="left-box">
-                        <address class="contact">
-                            <span class="span-contact">Call:</span>
-                            <br>
-                            +091 1234 5678
-                            <br> 
-                            <span class="span-contact">Email:</span> 
-                            <br>
-                            northstreet@gmail.com
-                            <br>
-                            <span class="span-contact">Visit:</span>  
-                            <br>
-                            22, Northstreet Road
-                            <br>
-                            Melbourne, Victoria
-                            <br>
-                            Australia
-                        </address>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-sm-6 contact-right" >
-                            
-                            <form novalidate action="mailto:anttnew@gmmmail.com" name="frm" method="post">
-                                 <div class="form-group has-feedback">
-                                    <label class="sr-only">First name:</label>
-                                    <input type="text" name="name" class="form-control" placeholder="First name" required>
-                                    
-                                </div>
-                                 <div class="form-group has-feedback">
-                                    <label class="sr-only">Last name:</label>
-                                    <input type="text" name="surname" class="form-control" placeholder="Last name" required>
-                                    
-                                </div>
-                                <div class="form-group has-feedback">
-                                    <label class="sr-only">Email:</label>
-                                    <input type="email" name="email" class="form-control"  placeholder="Email" required>
-                                    
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" name="comment" for="comment">Comment:</label>
-                                    <textarea class="form-control" rows="5" id="comment" placeholder="Description"></textarea>
-                                </div>
-                                <div class="contact-buttons pull-left">
-                                    <input type="submit" name="submit"  value="Send" />
-                                    <input type="reset" value="Reset" />
-                                </div>
-                            </form>
-                            
-                </div>
-            </div>
-            <div class="row">
-                <div id="googleMap" style="height:300px;width:100%;"></div>
-
-                <!-- Add Google Maps -->
-                <script src="http://maps.googleapis.com/maps/api/js"></script>
-                <script>
-                var myCenter = new google.maps.LatLng(-37.817110, 144.959128);
-
-                function initialize() {
-                var mapProp = {
-                  center:myCenter,
-                  zoom:12,
-                  scrollwheel:false,
-                  draggable:false,
-                  mapTypeId:google.maps.MapTypeId.ROADMAP
-                  };
-
-                var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-
-                var marker = new google.maps.Marker({
-                  position:myCenter,
-                  });
-
-                marker.setMap(map);
+            .slideanim {visibility:hidden;}
+            .slide {
+                animation-name: slide;
+                -webkit-animation-name: slide;
+                animation-duration: 1s;
+                -webkit-animation-duration: 1s;
+                visibility: visible;
+            }
+            @keyframes slide {
+                0% {
+                opacity: 0;
+                transform: translateY(70%);
+                } 
+                100% {
+                opacity: 1;
+                transform: translateY(0%);
                 }
+            }
+            @-webkit-keyframes slide {
+                0% {
+                opacity: 0;
+                -webkit-transform: translateY(70%);
+                } 
+                100% {
+                opacity: 1;
+                -webkit-transform: translateY(0%);
+                }
+            }
+            @media screen and (max-width: 768px) {
+                .col-sm-4 {
+                text-align: center;
+                margin: 25px 0;
+                }
+                .btn-lg {
+                width: 100%;
+                margin-bottom: 35px;
+                }
+            }
+            @media screen and (max-width: 480px) {
+                .logo {
+                font-size: 150px;
+                }
+            }
+ 
+        </style>
+    </head>
+    <body class="antialiased" id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" >
+        <!--<div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
+            @if (Route::has('login'))
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    @auth
+                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                    @else
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
 
-                google.maps.event.addDomListener(window, 'load', initialize);
-                </script>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+        </div>-->
+
+        <div class="jumbotron" style="">
+        <h1 class="display-4">Nourriture Savoureuse</h1>
+        <p class="lead">All happiness depends on a leisurely meal. You don't need a silver fork to eat good food. </p><p>Coffee is always a good idea. When life gives you lemons, trade them for coffee.</p>
+        <hr class="bg-light">
+        <p>Operation Hour: 11am - 10pm Everyday excepts Monday</p>
+        <p class="lead">
+            <a class="btn btn-light btn-lg" href="#" role="button">Log in to reserve a table</a>
+        </p>
+        </div>
+        <!-- Container (About Section) -->
+        <div id="about" class="container-fluid bg-dark text-white">
+        <div class="row">
+            <div class="col-sm-8 ">
+            <h2>About Our Restaurant</h2><br>
+            <h4>The Nourriture is located at Campbell Street. Tucked in England House, We're a small coffee house with an English cottage ambience. Serving aesthetic-looking food and drinks, slow down your day and unwind in this cozy cottage.</h4>
             </div>
-        </div>    
-    </section>
-
-    <footer class="-bg-footer" id="footer">
-        <div class="container-fluid">
-            <div class="row footer-align">
-                <div class="col-md-4 col-sm-4">
-                    <h5>Northstreet</h5>
-                    <hr class="hr-foot">
-                    <div class="footer-items">
-                        <p class="footer">
-                            The EU-27 has an estimated 1.6m businesses involved in 'accommodation and food services', more than 75% of which are small and medium enterprises.
-                        </p>
-                        <ul class="social-networks">
-                            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <h5>Our contact</h5>
-                    <hr class="hr-foot">
-                    <div class="footer-items">
-                        <address>
-                                22, Northstreet Road
-                                <br>
-                                Melbourne, Victoria
-                                <br>
-                                Australia
-                                <br>
-                                <i class="fa fa-phone address"></i> +091 1234 5678
-                                <br>
-                                <i class="fa fa-fax address"></i> +876 5432 1234
-                                <br>
-                                <i class="fa fa-envelope address"></i> <a href="mailto:northstreet@gmail.com">northstreet@gmail.com</a>
-                        </address>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <h5>Open hours</h5>
-                    <hr class="hr-foot">
-                    <div class="footer-items">
-                        <ul>
-                            <li>Mon-Fri: 08:00-22:00</li>
-                            <li>Sat    : 09:00-22:00</li>
-                            <li>Sun    : 09:00-16:00</li> 
-                        </ul>
-                    </div>
-                </div>
+            <div class="col-sm-4 ">
+            <img src="https://res.cloudinary.com/dbte0ueti/image/upload/v1536951746/new/warm_welcome.jpg" alt="Warm welcome" class="img-fluid">
             </div>
         </div>
+
+        </div>
+        <!-- Container (Services Section) -->
+        <div id="services" class="container-fluid text-center">
+        <h2>What we offer</h2>
+        <br>
+        <div class="row slideanim">
+            <div class="col-sm-4">
+            <h4>FOOD</h4>
+            <span class="text-warning"><i class="material-icons"style="font-size: 60px;">dinner_dining</i></span>
+            <p>Spaghetti | Burger | Western </p>
+            </div>
+            <div class="col-sm-4">
+            <h4>BEVERAGE</h4>
+            <span class="text-danger"><i class="material-icons"style="font-size: 60px;">coffee</i></span>
+            <p> Coffee | Chocolate | Tea </p>
+            </div>
+            <div class="col-sm-4">
+            
+            <h4>DESSERT</h4>
+            <span class="text-info"><i class="material-icons"style="font-size: 60px;">icecream</i></span>
+            <p> Waffles | Ice Cream | Soufflé </p>
+            </div>
+        </div>
+        </div>
+
+        <h2 class="text-center">Menu</h2>  
+        <section id="tabs" class="menu-tab">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav>
+                            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-food-tab" data-toggle="tab" href="#nav-food" role="tab" aria-controls="nav-food" aria-selected="true">Food</a>
+                                <a class="nav-item nav-link" id="nav-beverage-tab" data-toggle="tab" href="#nav-beverage" role="tab" aria-controls="nav-beverage" aria-selected="false">Beverage</a>
+                                <a class="nav-item nav-link" id="nav-dessert-tab" data-toggle="tab" href="#nav-dessert" role="tab" aria-controls="nav-dessert" aria-selected="false">Dessert</a>
+                            </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-food" role="tabpanel" aria-labelledby="nav-food-tab">
+                                <table class="table" cellspacing="0" width="80%">
+                                    <thead>
+                                        <tr>
+                                            <th>Food</th>
+                                            <th>Description</th>
+                                            <th>Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach ($items as $item)
+                                        @if($item->category == "food")
+                                        <tr>
+                                            <td><b>{{$item->name}}</b></td>
+                                            <td>{{$item->description}}</td>
+                                            <td><i>{{$item->price}}</i></td>
+                                        </tr>
+                                        @endif
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-beverage" role="tabpanel" aria-labelledby="nav-beverage-tab">
+                                <table class="table" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Beverage</th>
+                                            <th>Description</th>
+                                            <th>Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach ($items as $item)
+                                        @if($item->category == "beverage")
+                                        <tr>
+                                            <td><b>{{$item->name}}</b></td>
+                                            <td>{{$item->description}}</td>
+                                            <td><i>{{$item->price}}</i></td>
+                                        </tr>
+                                        @endif
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-dessert" role="tabpanel" aria-labelledby="nav-dessert-tab">
+                                <table class="table" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Dessert</th>
+                                            <th>Description</th>
+                                            <th>Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach ($items as $item)
+                                        @if($item->category == "dessert")
+                                        <tr>
+                                            <td><b>{{$item->name}}</b></td>
+                                            <td>{{$item->description}}</td>
+                                            <td><i>{{$item->price}}</i></td>
+                                        </tr>
+                                        @endif
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Container (Gallery Section) -->
+        <div id="gallery" class="container-fluid text-center">
+        <h2>Gallery</h2><br>
+        <div class="row text-center">
+            @foreach ($items as $item)
+                @if($item->category == "food" || $item->category == "dessert")
+            <div class="col-sm-3">
+            <div class="thumbnail">
+                <img src="{{url($item->photo)}}" alt="{{$item->name}}">
+                <p><strong>{{$item->name}}</strong></p>
+            </div>
+            </div>
+                @endif
+            @endforeach
+        </div><br>
+        </div>
+
         
-        <a class="to-top" href="#myPage" title="toTop">
-            <i class="fa fa-chevron-up"></i>
-        </a>
-    </footer>
+        
+        <h2>What our customers say</h2>
+        <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+        </div>
 
-    <div class="footer-copyright">
-            <p>&copy 2018 Copyright by  <a href="https://github.com/anttnew"> https://github.com/anttnew</a></p>
-    </div>
-    <script src="{{ asset('js/script.js') }}"></script>
+        <!-- Image of location/map -->
+        <img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%">
 
-    <script>
-     
-    </script>  
-    
-</body>
 
+        <script>
+        $(document).ready(function(){
+        // Add smooth scrolling to all links in navbar + footer link
+        $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+
+            // Store hash
+            var hash = this.hash;
+
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 900, function(){
+        
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+            });
+            } // End if
+        });
+        
+        $(window).scroll(function() {
+            $(".slideanim").each(function(){
+            var pos = $(this).offset().top;
+
+            var winTop = $(window).scrollTop();
+                if (pos < winTop + 600) {
+                $(this).addClass("slide");
+                }
+            });
+        });
+        });
+       
+        </script>
+
+    </body>
 </html>

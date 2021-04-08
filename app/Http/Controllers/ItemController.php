@@ -9,7 +9,7 @@ class ItemController extends Controller
  
     public function index(){
         $items = Item::all();
-        return view('welcome',['items'=> $items]); 
+        return $items;
     }
     
     public function store(Request $req){

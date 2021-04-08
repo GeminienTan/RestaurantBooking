@@ -34,27 +34,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">Logo</a>
+      <a class="navbar-brand" href="#">Nourriture Savoureuse</a>
+    </div> 
+    <div class="navbar-right">
+      <ul class="nav navbar-nav">
+        <li><a href="{{ url('/logout') }}">Log Out</a></li>
+      </ul>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Messages</a></li>
-      </ul>
-      <form class="navbar-form navbar-right" role="search">
-        <div class="form-group input-group">
-          <input type="text" class="form-control" placeholder="Search..">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">
-              <span class="glyphicon glyphicon-search"></span>
-            </button>
-          </span>        
-        </div>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> My Account</a></li>
+        <li><a href="{{ url('/restaurant') }}">Home</a></li>
+        <li class="active"><a href="{{ url('/user') }}">User Dashboard</a></li>
       </ul>
     </div>
+   
   </div>
 </nav>
   
@@ -64,7 +57,7 @@
       
       <div class="well ">
         <div class="text-right">
-        <span class="btn btn-xs btn-primary" data-toggle="modal" data-target="#exampleModal"><span class="inline-icon material-icons md-18">edit</span></span>
+        <span class="btn btn-xs btn-primary" data-toggle="modal" data-target="#profileModal"><span class="inline-icon material-icons md-18">edit</span></span>
         </div>
         <h4><b><span class="inline-icon material-icons md-24">account_circle</span> My Profile</b></h4>
         <hr>
@@ -83,12 +76,13 @@
         <li>2021/4/8 12:00 <span class="label label-success">Confirmed</span></li>
         <li>2021/4/8 12:00 <span class="label label-warning">Cancel</span></li>
         <li>2021/4/8 12:00 <span class="label label-danger">Rejected</span></li>
+       
         </ul>
       </div>
     </div>
 
         <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header bg-primary">
@@ -96,7 +90,7 @@
             <button type="button" class="close btn-lg" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
-            <h4 class="modal-title" id="exampleModalLabel">Edit Profile</h4>
+            <h4 class="modal-title" id="profileModalLabel">Edit Profile</h4>
         </div>
         <div class="modal-body text-left">
         <form>
@@ -140,7 +134,7 @@
                         </div>
                         <div class="form-group">
                             <label for="datetime">Booking Date</label>
-                            <input type="datetime" class="form-control" id="booking_date" name="booking_date">
+                            <input type="datetime-local" class="form-control" id="booking_date" name="booking_date">
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
@@ -151,49 +145,57 @@
                     </form>
                 </div>
                 <div class="panel-footer"><p>We will cancel your reservation if you do not show up after 30 mins of the reservation time.
-                You may contact us by phone 04-8296406.<p></div>
+                You may contact us by phone 04-8296406.</p></div>
                 </div>
 
                 <div class="panel panel-primary">
                 <div class="panel-heading">FEEDBACK</div>
                 <div class="panel-body">
+                <p>Please rate us where 1 is Poor and 5 is Excellent.</p>
                     <form>
                     <div class="form-group">
                         <label for="name">Food</label>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="service" id="poorService" value="1">
-                            <label class="form-check-label" for="inlineRadio1">Poor</label>
-                            <input class="form-check-input" type="radio" name="service" id="goodService" value="2">
-                            <label class="form-check-label" for="inlineRadio2">Okay, Not Bad</label>
-                            <input class="form-check-input" type="radio" name="service" id="excellentService" value="3">
-                            <label class="form-check-label" for="inlineRadio3">Excellent</label>
+                            <input class="form-check-input" type="radio" name="food" value="1">
+                            <label class="form-check-label" for="inlineRadio1">1</label>&nbsp
+                            <input class="form-check-input" type="radio" name="food" value="2">
+                            <label class="form-check-label" for="inlineRadio2">2</label>&nbsp
+                            <input class="form-check-input" type="radio" name="food" value="3">
+                            <label class="form-check-label" for="inlineRadio3">3</label>&nbsp
+                            <input class="form-check-input" type="radio" name="food" value="4">
+                            <label class="form-check-label" for="inlineRadio3">4</label>&nbsp
+                            <input class="form-check-input" type="radio" name="food" value="5">
+                            <label class="form-check-label" for="inlineRadio3">5</label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="name">Service</label>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="service" id="poorService" value="1">
+                            <input class="form-check-input" type="radio" name="service" value="1">
                             <label class="form-check-label" for="inlineRadio1">1</label>&nbsp
-                            
-                            <input class="form-check-input" type="radio" name="service" id="goodService" value="2">
+                            <input class="form-check-input" type="radio" name="service" value="2">
                             <label class="form-check-label" for="inlineRadio2">2</label>&nbsp
-                            <input class="form-check-input" type="radio" name="service" id="excellentService" value="3">
-                            <label class="form-check-label" for="inlineRadio3">3</label>
-                            <input class="form-check-input" type="radio" name="service" id="excellentService" value="3">
-                            <label class="form-check-label" for="inlineRadio3">4</label>
-                            <input class="form-check-input" type="radio" name="service" id="excellentService" value="3">
+                            <input class="form-check-input" type="radio" name="service" value="3">
+                            <label class="form-check-label" for="inlineRadio3">3</label>&nbsp
+                            <input class="form-check-input" type="radio" name="service" value="4">
+                            <label class="form-check-label" for="inlineRadio3">4</label>&nbsp
+                            <input class="form-check-input" type="radio" name="service" value="5">
                             <label class="form-check-label" for="inlineRadio3">5</label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="name">Environment</label>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="service" id="poorService" value="1">
-                            <label class="form-check-label" for="inlineRadio1">Poor</label>
-                            <input class="form-check-input" type="radio" name="service" id="goodService" value="2">
-                            <label class="form-check-label" for="inlineRadio2">Okay, Not Bad</label>
-                            <input class="form-check-input" type="radio" name="service" id="excellentService" value="3">
-                            <label class="form-check-label" for="inlineRadio3">Excellent</label>
+                            <input class="form-check-input" type="radio" name="environment" value="1">
+                            <label class="form-check-label" for="inlineRadio1">1</label>&nbsp
+                            <input class="form-check-input" type="radio" name="environment" value="2">
+                            <label class="form-check-label" for="inlineRadio2">2</label>&nbsp
+                            <input class="form-check-input" type="radio" name="environment" value="3">
+                            <label class="form-check-label" for="inlineRadio3">3</label>&nbsp
+                            <input class="form-check-input" type="radio" name="environment" value="4">
+                            <label class="form-check-label" for="inlineRadio3">4</label>&nbsp
+                            <input class="form-check-input" type="radio" name="environment" value="5">
+                            <label class="form-check-label" for="inlineRadio3">5</label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -205,80 +207,29 @@
                 </div>
                 <div class="panel-footer"><p>Thank you for your feedback.<p></div>
                 </div>
-            </div>
-
-                
+            </div> 
           </div>
         </div>
       </div>
-      
-      <div class="row">
-      <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-food" role="tabpanel" aria-labelledby="nav-food-tab">
-                <table class="table" cellspacing="0" width="80%">
-                    <thead>
-                        <tr>
-                            <th>Food</th>
-                            <th>Description</th>
-                            <th>Price</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                    <td>ww</td>
-                    <td>ww</td>
-                    <td>ww</td>
-                    <td><button type="submit" class="btn btn-primary">Submit</button></td>
-                    </tr>
-                    
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="nav-beverage" role="tabpanel" aria-labelledby="nav-beverage-tab">
-                <table class="table" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Beverage</th>
-                            <th>Description</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="nav-dessert" role="tabpanel" aria-labelledby="nav-dessert-tab">
-                <table class="table" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Dessert</th>
-                            <th>Description</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    
-                    </tbody>
-                </table>
-            </div>
-        </div>
-      </div>     
     </div>
     <div class="col-sm-3 well">
       <div class="thumbnail">
-        <p>Upcoming Events:</p>
-        <img src="paris.jpg" alt="Paris" width="400" height="300">
-        <p><strong>Paris</strong></p>
-        <p>Fri. 27 November 2015</p>
-        <button class="btn btn-primary">Info</button>
-      </div>      
-      <div class="well">
-        <p>ADS</p>
+        <p><strong> ~ Lunch Promotion ~ </strong></p>
+        <img src="/img/coffee-cup.jpg" alt="coffee" width="400" height="300">
+        <p> 1 main course + 1 beverage at only RM25.00!!</p>
+        <p> Tuesday to Friday 12pm - 3pm ** Except for Public Holiday</p>
+      </div>  
+      <div class="thumbnail">
+        <p><strong> ~ Party Time ~ </strong></p>
+        <img src="/img/event.jpg" alt="party" width="400" height="300">
+        <p>We offer full-service catering for any event, large or small. </p>
+        <p>We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
       </div>
-      <div class="well">
-        <p>ADS</p>
+      <div class="thumbnail">
+        <p><strong> ~ Get a Special Discount ~ </strong></p>
+        <img src="/img/phone.jpg" alt="party" width="400" height="300">
+        <p>Take a photo and upload to social medie, share the location with hashtag #Nourriture Savoureuse</p>
+        <p>Show to our staff to get 10% discount</p>
       </div>
     </div>
   </div>

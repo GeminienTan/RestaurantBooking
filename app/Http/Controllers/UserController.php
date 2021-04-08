@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Item;
+use App\Models\Reservation;
+
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
         public function index(){
             $users = User::all();
-            return $users;        
+            $reservations = Reservation::with('users')->get();
+            $items = Item::all();
+            return view('user', compact('reservations', 'items'));
         }
         
         public function store(Request $req){
