@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Reservation;
 class ReservationController extends Controller
@@ -20,10 +19,10 @@ class ReservationController extends Controller
         ]);
 
         $reservation = new Reservation();
-        $reservation->num_of_person = $req->service;
+        $reservation->num_of_person = $req->num_of_person;
         $reservation->booking_date = $req->booking_date;
         $reservation->message = $req->message;
-        $reservation->comment = $req->comment;
+        $reservation->status = "pending";
         $reservation->user_id = 1;
         
         $reservation ->save();
