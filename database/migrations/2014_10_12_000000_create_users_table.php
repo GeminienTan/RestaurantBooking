@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('contact_number');
             $table->enum('role', ['user','admin'])->default('user');
-            $table->boolean('is_super')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

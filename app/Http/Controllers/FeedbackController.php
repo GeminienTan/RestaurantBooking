@@ -25,7 +25,7 @@ class FeedbackController extends Controller
         $feedback->food = $req->food;
         $feedback->environment = $req->environment;
         $feedback->comment = $req->comment;
-        $feedback->user_id = 1;
+        $feedback->user_id = $req->id;
         
         $feedback ->save();
         

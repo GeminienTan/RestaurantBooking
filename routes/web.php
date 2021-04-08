@@ -40,3 +40,8 @@ Route::post('/addReservation',[ReservationController::class,'store']);
 Route::post('/addFeedback',[FeedbackController::class,'store']);
 
 
+//feedback CRUD
+Route::post('/addFeedback', [FeedbackController::class, 'store']);
+
+//logout
+Route::get('logout', [LoginController::class, 'logout']);

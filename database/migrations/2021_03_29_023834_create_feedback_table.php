@@ -18,7 +18,7 @@ class CreateFeedbackTable extends Migration
             $table->integer('service');
             $table->integer('food');
             $table->integer('environment');
-            $table->longText('comment');
+            $table->longText('comment')->nullable();
             $table->integer('user_id')->foreign()->references('id')->on('users');
             $table->timestamps();
         });
