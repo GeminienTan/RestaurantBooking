@@ -133,6 +133,7 @@
                   <label for="new_password">New Password</label>
                   <input type="password" class="form-control" id="new_password" name="new_password">
               </div>
+              <input type="hidden" name="id" value="{{Auth::guard('web')->user()->id}}">
               <button type="submit" class="btn btn-primary">Save Changes</button>
           </form>
           </div>
