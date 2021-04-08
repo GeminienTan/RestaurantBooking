@@ -77,12 +77,11 @@
           </div>
         <h4><b><span class="inline-icon material-icons md-24">history</span> Reservation History</b></h4>
         <hr>
+        
         <ul style="list-style-type:none;padding-left: 0;">
-        <li>2021/4/8 12:00 <span class="label label-primary">Pending</span></li>
-        <li>2021/4/8 12:00 <span class="label label-success">Confirmed</span></li>
-        <li>2021/4/8 12:00 <span class="label label-warning">Cancel</span></li>
-        <li>2021/4/8 12:00 <span class="label label-danger">Rejected</span></li>
+
         </ul>
+        
         </div>
         <div class="well text-left">
           <div class="text-right">
@@ -90,12 +89,15 @@
           </div>
         <h4><b><span class="inline-icon material-icons md-24">history</span> Feedback History</b></h4>
         <hr>
-        <ul style="list-style-type:none;padding-left: 0;">
-        <li>2021/4/8 12:00 <span class="label label-primary">Pending</span></li>
-        <li>2021/4/8 12:00 <span class="label label-success">Confirmed</span></li>
-        <li>2021/4/8 12:00 <span class="label label-warning">Cancel</span></li>
-        <li>2021/4/8 12:00 <span class="label label-danger">Rejected</span></li>
+        @foreach($feedbacks as $feedback)
+        <ul style="list-style-type:none;padding-left: 0;">    
+        <li>Service: {{$feedback['service']}}</li>   
+        <li>Food: {{$feedback['food']}} </li>
+        <li>Environment: {{$feedback['environment']}} </li>
+        <li>Comment: {{$feedback['comment']}} </li>
+        <li>Datetime: {{$feedback['created_at']}} </li>
         </ul>
+        @endforeach
         </div>
       </div>
 
@@ -205,11 +207,15 @@
                 <th>Delete</th>
               </thead>
               <tbody>
-                <td>Service</td>
-                <td></td>
-                <td></td>
-                <td>Comment</td>
+              @foreach($feedbacks as $feedback)
+                <tr>
+                <td>{{$feedback['service']}}</td>
+                <td>{{$feedback['food']}}</td>
+                <td>{{$feedback['environment']}}</td>
+                <td>{{$feedback['comment']}}/td>
                 <td><a type="button" href=""><span class="inline-icon material-icons md-24">delete</span></a></td>
+                </tr>
+              @endforeach
               </tbody>
               <!--"deleteReservation/".$reservation['id']-->
               </table>
@@ -244,6 +250,7 @@
                             <textarea class="form-control" id="message" name="message" aria-describedby="messageHelp" rows="4"></textarea>
                             <small id="messageHelp" class="form-text text-muted">Any special requirements. For example: Please prepare a baby chair for me.</small>
                         </div>
+                        <input type="hidden" name="user_id" value="{{Auth::guard('web')->user()->id}}">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>

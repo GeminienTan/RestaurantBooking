@@ -35,6 +35,11 @@ Route::post('/register/admin', [RegisterController::class,'createAdmin']);
 
 //feedback CRUD
 Route::post('/addFeedback', [FeedbackController::class, 'store']);
+Route::get('/user', [FeedbackController::class, 'index' ]);
+
+//reservation CRUD
+Route::post('/addReservation', [ReservationController::class, 'store']);
+//Route::get('/user', [ReservationController::class, 'index']);
 
 //logout
 Route::get('logout', [LoginController::class, 'logout']);

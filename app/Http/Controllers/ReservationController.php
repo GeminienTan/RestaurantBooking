@@ -4,11 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reservation;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 class ReservationController extends Controller
 {
     public function index(){
-        $reservation = Reservation::all(); 
-        return $reservation;
+        if (Gate::allows('isAdmin')){
+            $data = Reservation::simplePaginate(7);
+            $count = Reservation::count();   
+            return view('reservation',  ['reservations' =>$data, 'counts' =>$count]);      
+        }
+        else{ //user only can see his reservation
+            $id = Auth::id();
+            $reservations = Reservation::where('user_id', '=', $id)->get();
+            //return view('user', ['reservations'=>$reservations]);
+        }
     }
 
     public function store(Request $req){
@@ -20,11 +30,11 @@ class ReservationController extends Controller
         ]);
 
         $reservation = new Reservation();
-        $reservation->num_of_person = $req->service;
+        $reservation->num_of_person = $req->num_of_person;
         $reservation->booking_date = $req->booking_date;
         $reservation->message = $req->message;
-        $reservation->comment = $req->comment;
-        $reservation->user_id = 1;
+        $reservation->message = $req->message;
+        $reservation->user_id = $req->id;
         
         $reservation ->save();
 
