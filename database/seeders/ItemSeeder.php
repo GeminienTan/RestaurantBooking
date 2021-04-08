@@ -20,6 +20,7 @@ class ItemSeeder extends Seeder
                 'price' => 18.90,
                 'category' => 'food',
                 'photo' => '/img/aglio_olio.jpg',
+                'status' => 'available',
                 "created_at" =>  \Carbon\Carbon::now(),
                 "updated_at" => \Carbon\Carbon::now()
             ],
@@ -29,6 +30,7 @@ class ItemSeeder extends Seeder
                 'price' => 18.90,
                 'category' => 'food',
                 'photo' => '/img/curry_pasta.jpg',
+                'status' => 'available',
                 "created_at" =>  \Carbon\Carbon::now(),
                 "updated_at" => \Carbon\Carbon::now()
             ],
@@ -38,6 +40,7 @@ class ItemSeeder extends Seeder
                 'price' => 18.90,
                 'category' => 'food',
                 'photo' => '/img/pesto_pasta.jpg',
+                'status' => 'available',
                 "created_at" =>  \Carbon\Carbon::now(),
                 "updated_at" => \Carbon\Carbon::now()
             ],
@@ -47,6 +50,7 @@ class ItemSeeder extends Seeder
                 'price' => 18.90,
                 'category' => 'food',
                 'photo' => '/img/bagel_love.jpg',
+                'status' => 'available',
                 "created_at" =>  \Carbon\Carbon::now(),
                 "updated_at" => \Carbon\Carbon::now()
             ],
@@ -56,6 +60,7 @@ class ItemSeeder extends Seeder
                 'price' => 17.90,
                 'category' => 'food',
                 'photo' => '/img/fish_fillet_burger.jpg',
+                'status' => 'available',
                 "created_at" =>  \Carbon\Carbon::now(),
                 "updated_at" => \Carbon\Carbon::now()
             ],
@@ -65,6 +70,7 @@ class ItemSeeder extends Seeder
                 'price' => 21.90,
                 'category' => 'food',
                 'photo' => '/img/chicken_charcoal_burger.jpg',
+                'status' => 'available',
                 "created_at" =>  \Carbon\Carbon::now(),
                 "updated_at" => \Carbon\Carbon::now()
             ],
@@ -74,6 +80,7 @@ class ItemSeeder extends Seeder
                 'price' => 10.00,
                 'category' => 'food',
                 'photo' => '/img/chicken_charcoal_burger.jpg',
+                'status' => 'available',
                 "created_at" =>  \Carbon\Carbon::now(),
                 "updated_at" => \Carbon\Carbon::now()
             ],
@@ -83,6 +90,7 @@ class ItemSeeder extends Seeder
                 'price' => 19.90,
                 'category' => 'dessert',
                 'photo' => '/img/mango_tango.jpg',
+                'status' => 'available',
                 "created_at" =>  \Carbon\Carbon::now(),
                 "updated_at" => \Carbon\Carbon::now()
             ],
@@ -92,6 +100,7 @@ class ItemSeeder extends Seeder
                 'price' => 14.90,
                 'category' => 'dessert',
                 'photo' => '/img/nuna_waffle.jpg',
+                'status' => 'available',
                 "created_at" =>  \Carbon\Carbon::now(),
                 "updated_at" => \Carbon\Carbon::now()
             ],
@@ -101,6 +110,7 @@ class ItemSeeder extends Seeder
                 'price' => 14.90,
                 'category' => 'dessert',
                 'photo' => '/img/mango_tango.jpg',
+                'status' => 'available',
                 "created_at" =>  \Carbon\Carbon::now(),
                 "updated_at" => \Carbon\Carbon::now()
             ],
@@ -110,6 +120,7 @@ class ItemSeeder extends Seeder
                 'price' => 18.90,
                 'category' => 'dessert',
                 'photo' => '/img/banana_kick.jpg',
+                'status' => 'available',
                 "created_at" =>  \Carbon\Carbon::now(),
                 "updated_at" => \Carbon\Carbon::now()
             ],
@@ -119,6 +130,7 @@ class ItemSeeder extends Seeder
                 'price' => 19.90,
                 'category' => 'dessert',
                 'photo' => '/img/rainbow_love.jpg',
+                'status' => 'available',
                 "created_at" =>  \Carbon\Carbon::now(),
                 "updated_at" => \Carbon\Carbon::now()
             ],
@@ -128,6 +140,7 @@ class ItemSeeder extends Seeder
                 'price' => 6.90,
                 'category' => 'beverage',
                 'photo' => '/img/latte.jpg',
+                'status' => 'available',
                 "created_at" =>  \Carbon\Carbon::now(),
                 "updated_at" => \Carbon\Carbon::now()
             ],
@@ -137,6 +150,7 @@ class ItemSeeder extends Seeder
                 'price' => 7.90,
                 'category' => 'beverage',
                 'photo' => '/img/cappuccino.jpg',
+                'status' => 'available',
                 "created_at" =>  \Carbon\Carbon::now(),
                 "updated_at" => \Carbon\Carbon::now()
             ],
@@ -146,6 +160,7 @@ class ItemSeeder extends Seeder
                 'price' => 11.90,
                 'category' => 'beverage',
                 'photo' => '/img/caramel_mocha.jpg',
+                'status' => 'available',
                 "created_at" =>  \Carbon\Carbon::now(),
                 "updated_at" => \Carbon\Carbon::now()
             ],
@@ -155,6 +170,7 @@ class ItemSeeder extends Seeder
                 'price' => 11.90,
                 'category' => 'beverage',
                 'photo' => '/img/caramel_hazelnut.jpg',
+                'status' => 'available',
                 "created_at" =>  \Carbon\Carbon::now(),
                 "updated_at" => \Carbon\Carbon::now()
             ],

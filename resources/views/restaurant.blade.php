@@ -216,7 +216,7 @@
         <hr class="bg-light">
         <p>Operation Hour: 11am - 10pm Everyday excepts Monday</p>
         <p class="lead">
-            <a class="btn btn-light btn-lg" href="#" role="button">Log in to reserve a table</a>
+            <a class="btn btn-light btn-lg" href="{{ route('login') }}" role="button">Log in to reserve a table</a>
         </p>
         </div>
         <!-- Container (About Section) -->
@@ -358,14 +358,22 @@
         </div><br>
         </div>
 
-        
-        
-        <h2>What our customers say</h2>
-        <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+        <!-- Container (Services Section) -->
+        <div id="footer" class="text-center bg-dark text-white">
+        <div class="row">
+            <div class="col-sm-6">
+            <h4>Contact Us</h4>
+            <p>Contact Number: 04-8296406</p>
+            <p>Email Address: nourriture@gmail.com</p>
+            <p>Address: 4, Lebuh Campbell, George Town, 10100 George Town, Pulau Pinang</p>
+            </div>
+            <div class="col-sm-6">
+            <h4>Reservation</h4>
+            <p>Login to make a reservation </p>
+                <a class="btn btn-light btn-lg" href="{{ route('login') }}" role="button">Log in / Register</a>
+            </div>
         </div>
-
-        <!-- Image of location/map -->
-        <img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%">
+        </div>
 
 
         <script>

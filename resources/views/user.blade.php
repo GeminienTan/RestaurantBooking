@@ -15,6 +15,9 @@
       color: white;
       padding: 15px;
     }
+    body{
+      background-color:#E5E8E1;
+    }
     .inline-icon {
     vertical-align: bottom;
     }
@@ -55,7 +58,7 @@
   <div class="row">
     <div class="col-md-3 well">
       
-      <div class="well ">
+      <div class="well">
         <div class="text-right">
         <span class="btn btn-xs btn-primary" data-toggle="modal" data-target="#profileModal"><span class="inline-icon material-icons md-18">edit</span></span>
         </div>

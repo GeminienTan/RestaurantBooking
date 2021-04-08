@@ -20,6 +20,7 @@ class CreateItemTable extends Migration
             $table->decimal('price', $precision = 8, $scale = 2);
             $table->enum('category', ['food', 'beverage', 'dessert']);
             $table->string('photo');
+            $table->enum('status', ['available', 'not available']);
             $table->timestamps();
         });
     }

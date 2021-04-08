@@ -17,8 +17,9 @@ class UserController extends Controller
             return view('user', compact('reservations', 'items'));
         }
         
-        public function store(Request $req){
+        public function store(Request $req){                
             $user = User::create($req->all());
+            
             $user->role = 'user';
             $user->is_super = false;
             $user->remember_token  = $req->remember_token;
