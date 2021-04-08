@@ -3,16 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Feedback;
+
 class FeedbackController extends Controller
 {
-    public function index(){
+    function index(){
         $feedback = Feedback::all(); 
         return $feedback;
     }
 
-    public function store(Request $req){
-        return Feedback::create($req->all());
+    function store(Request $req){
+
+        $this->validate($req, [
+            'service' => 'required',
+            'food' => 'required',
+            'environment' => 'required',
+        ]);
+        
+        $feedback = new Feedback();
+        $feedback->service = $req->service;
+        $feedback->food = $req->food;
+        $feedback->environment = $req->environment;
+        $feedback->comment = $req->comment;
+        $feedback->user_id = 1;
+        
+        $feedback ->save();
+        
+        return redirect("user")->with('success', 'Record added successfully!');
     }
 
     public function update(Request $req, $id){

@@ -12,6 +12,12 @@ class ReservationController extends Controller
     }
 
     public function store(Request $req){
+        
+        $this->validate($req, [
+            'num_of_person' => 'required',
+            'booking_date' => 'required',
+        ]);
+
         return Reservation::create($req->all());
     }
 

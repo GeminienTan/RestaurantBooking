@@ -33,3 +33,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::post("addFeedback", [FeedbackController::class, 'store']);
+
+Route::post("updateReservation/{id}", [ReservationController::class, 'update']);
+Route::get("deleteReservation/{id}", [ReservationController::class, 'destroy']);
+
+Route::post("updateUser/{id}", [UserController::class, 'update']);
+Route::get("deleteUser/{id}", [UserController::class, 'destroy']);

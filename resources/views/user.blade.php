@@ -69,9 +69,13 @@
         <p><span class="inline-icon material-icons md-18 ">email</span> <b>Email</b></p>
         <p><span class="inline-icon material-icons md-18 ">phone</span> <b>Contact Number</b></p>
         </div>
-       
-      </div>
-      <div class="well text-left">
+        <hr>
+        <a href="#" onclick="return confirm('Are you sure?')">Delete Account </a>
+        </div>
+        <div class="well text-left">
+          <div class="text-right">
+            <span class="btn btn-xs btn-primary" data-toggle="modal" data-target="#reservationModal"><span class="inline-icon material-icons md-18">edit</span></span>
+          </div>
         <h4><b><span class="inline-icon material-icons md-24">history</span> Reservation History</b></h4>
         <hr>
         <ul style="list-style-type:none;padding-left: 0;">
@@ -79,45 +83,141 @@
         <li>2021/4/8 12:00 <span class="label label-success">Confirmed</span></li>
         <li>2021/4/8 12:00 <span class="label label-warning">Cancel</span></li>
         <li>2021/4/8 12:00 <span class="label label-danger">Rejected</span></li>
-       
         </ul>
+        </div>
+        <div class="well text-left">
+          <div class="text-right">
+            <span class="btn btn-xs btn-primary" data-toggle="modal" data-target="#feedbackModal"><span class="inline-icon material-icons md-18">edit</span></span>
+          </div>
+        <h4><b><span class="inline-icon material-icons md-24">history</span> Feedback History</b></h4>
+        <hr>
+        <ul style="list-style-type:none;padding-left: 0;">
+        <li>2021/4/8 12:00 <span class="label label-primary">Pending</span></li>
+        <li>2021/4/8 12:00 <span class="label label-success">Confirmed</span></li>
+        <li>2021/4/8 12:00 <span class="label label-warning">Cancel</span></li>
+        <li>2021/4/8 12:00 <span class="label label-danger">Rejected</span></li>
+        </ul>
+        </div>
+      </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+          <div class="modal-header bg-primary">
+              
+              <button type="button" class="close btn-lg" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="profileModalLabel">Edit Profile</h4>
+          </div>
+          <div class="modal-body text-left">
+          <form action="updateUser" method="post">
+          @csrf
+              <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" name="name" value="">
+              </div>
+              <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" value="">
+              </div>
+              <div class="form-group">
+                  <label for="contact_no">Contact Number</label>
+                  <input type="text" class="form-control" id="contact_no" name="contact_no" value="">
+              </div>
+              <div class="form-group">
+                  <label for="old_password">Old Password</label>
+                  <input type="password" class="form-control" id="old_password" name="old_password">
+              </div>
+              <div class="form-group">
+                  <label for="new_password">New Password</label>
+                  <input type="password" class="form-control" id="new_password" name="new_password">
+              </div>
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+          </form>
+          </div>
+          </div>
       </div>
     </div>
 
-        <!-- Modal -->
-    <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header bg-primary">
-            
-            <button type="button" class="close btn-lg" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-            <h4 class="modal-title" id="profileModalLabel">Edit Profile</h4>
-        </div>
-        <div class="modal-body text-left">
-        <form>
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" name="name">
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="email">
-            </div>
-            <div class="form-group">
-                <label for="contact_no">Contact Number</label>
-                <input type="text" class="form-control" id="contact_no" name="contact_no">
-            </div>
-            <div class="form-group">
-                <label for="contact_no">Password</label>
-                <input type="password" class="form-control" id="password" name="password">
-            </div>
-            <button type="submit" class="btn btn-primary">Save Changes</button>
-        </form>
-        </div>
-        </div>
+    <!-- Reservation Modal -->
+    <div class="modal fade" id="reservationModal" tabindex="-1" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+          <div class="modal-header bg-primary">
+              
+              <button type="button" class="close btn-lg" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="reservationModalLabel">Cancel Reservation</h4>
+          </div>
+          <div class="modal-body text-left">
+          <form action="updateReservation" method="post">
+          @csrf
+              <table class="table" cellspacing="0" width="80%">
+              <thead>
+                <th>Date</th>
+                <th>Number of person</th>
+                <th>Comment</th>
+                <th>Status</th>
+                <th>Delete</th>
+              </thead>
+              <tbody>
+                <td>Date</td>
+                <td>Number of person</td>
+                <td>Comment</td>
+                <td>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>Pending</option>
+                  <option value="cancel">Cancel</option>
+                </select>
+                </td>
+                <td><a type="button" href=""><span class="inline-icon material-icons md-24">delete</span></a></td>
+              </tbody>
+              <!--"deleteReservation/".$reservation['id']-->
+              </table>
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+          </form>
+          </div>
+          </div>
+      </div>
     </div>
+    <!-- Feedback Modal -->
+    <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+          <div class="modal-header bg-primary">
+              
+              <button type="button" class="close btn-lg" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="feedbackModalLabel">Delete Feedback</h4>
+          </div>
+          <div class="modal-body text-left">
+          <form action="updateFeedback" method="post">
+          @csrf
+              <table class="table" cellspacing="0" width="80%">
+              <thead>
+                <th>Service</th>
+                <th>Food</th>
+                <th>Environment</th>
+                <th>Comment</th>
+                <th>Delete</th>
+              </thead>
+              <tbody>
+                <td>Service</td>
+                <td></td>
+                <td></td>
+                <td>Comment</td>
+                <td><a type="button" href=""><span class="inline-icon material-icons md-24">delete</span></a></td>
+              </tbody>
+              <!--"deleteReservation/".$reservation['id']-->
+              </table>
+          </form>
+          </div>
+          </div>
+      </div>
     </div>
 
     <div class="col-sm-6">
@@ -132,12 +232,12 @@
                     <form>
                         <div class="form-group">
                             <label for="num_of_person">Number of Person</label>
-                            <input type="number" class="form-control" id="num_of_person" name="num_of_person" aria-describedby="peopleHelp" >
+                            <input type="number" class="form-control" id="num_of_person" name="num_of_person" aria-describedby="peopleHelp" required>
                             <small id="peopleHelp" class="form-text text-muted">Total number of person (including adults and children)</small>
                         </div>
                         <div class="form-group">
                             <label for="datetime">Booking Date</label>
-                            <input type="datetime-local" class="form-control" id="booking_date" name="booking_date">
+                            <input type="datetime-local" class="form-control" id="booking_date" name="booking_date" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
@@ -155,11 +255,12 @@
                 <div class="panel-heading">FEEDBACK</div>
                 <div class="panel-body">
                 <p>Please rate us where 1 is Poor and 5 is Excellent.</p>
-                    <form>
+                    <form action="addFeedback" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label for="name">Food</label>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="food" value="1">
+                            <input class="form-check-input" type="radio" name="food" value="1" >
                             <label class="form-check-label" for="inlineRadio1">1</label>&nbsp
                             <input class="form-check-input" type="radio" name="food" value="2">
                             <label class="form-check-label" for="inlineRadio2">2</label>&nbsp
@@ -167,7 +268,7 @@
                             <label class="form-check-label" for="inlineRadio3">3</label>&nbsp
                             <input class="form-check-input" type="radio" name="food" value="4">
                             <label class="form-check-label" for="inlineRadio3">4</label>&nbsp
-                            <input class="form-check-input" type="radio" name="food" value="5">
+                            <input class="form-check-input" type="radio" name="food" value="5" checked>
                             <label class="form-check-label" for="inlineRadio3">5</label>
                         </div>
                     </div>
@@ -182,7 +283,7 @@
                             <label class="form-check-label" for="inlineRadio3">3</label>&nbsp
                             <input class="form-check-input" type="radio" name="service" value="4">
                             <label class="form-check-label" for="inlineRadio3">4</label>&nbsp
-                            <input class="form-check-input" type="radio" name="service" value="5">
+                            <input class="form-check-input" type="radio" name="service" value="5" checked>
                             <label class="form-check-label" for="inlineRadio3">5</label>
                         </div>
                     </div>
@@ -197,7 +298,7 @@
                             <label class="form-check-label" for="inlineRadio3">3</label>&nbsp
                             <input class="form-check-input" type="radio" name="environment" value="4">
                             <label class="form-check-label" for="inlineRadio3">4</label>&nbsp
-                            <input class="form-check-input" type="radio" name="environment" value="5">
+                            <input class="form-check-input" type="radio" name="environment" value="5" checked>
                             <label class="form-check-label" for="inlineRadio3">5</label>
                         </div>
                     </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Item;
 use App\Models\Reservation;
+use App\Models\Feedback;
 
 use Illuminate\Http\Request;
 
