@@ -14,11 +14,19 @@ class UserController extends Controller
 {
         public function index(){
             $users = User::all();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 121cea587169e6d491fe48a683380231db4358eb
             //$reservations = Reservation::all();
             //$reservations = Reservation::with('users')->get();
             //$items = Item::all();
             //return view('user', compact('reservations', 'items'));
             return view('user');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 121cea587169e6d491fe48a683380231db4358eb
         }
         
         public function store(Request $req){                
@@ -33,29 +41,14 @@ class UserController extends Controller
         /*public function updateUser(Request $req, $id){
             $this->validate($req, [
                 'name' => 'required|string|max:255',
-                'email' => 'required|string|email|max:255|unique:users',
+                'email' => 'required|string|email|max:255',
                 'contact_number' => 'required|min:10|max:11',
                 'password' => 'required|string|min:8'
             ]);
-    
-            $data = User::find($req->id);
-            $data->name = $req->name;
-            $data->email = $req->email;
-            $data->contact_number = $req->contact_number;
-            $data->password = $req->password;
-            $data->save();
-            return redirect("user")->with('success','Record Updated');
-    
-        }*/
-        function updateUser(Request $req)
-        {
-            $data = User::find($req->id);
-            $data->name = $req->name;
-            $data->email = $req->email;
-            $data->contact_number = $req->contact_number;
-            $data->password = $req->password;
-            $data->save();
-            return redirect("user")->with('success','Record Updated');
+            $user = User::find($req->id);
+         
+            $user->update($req->all());
+            return redirect("user");
         }
         /*
         public function destroy($id){

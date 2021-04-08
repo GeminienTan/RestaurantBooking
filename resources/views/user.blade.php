@@ -117,7 +117,11 @@
               </div>
               <div class="form-group">
                   <label for="contact_no">Contact Number</label>
+<<<<<<< HEAD
                   <input type="text" class="form-control" id="contact_no" name="contact_number" value="{{Auth::guard('web')->user()->contact_number}}">
+=======
+                  <input type="text" class="form-control" id="contact_number" name="contact_number" value="{{Auth::guard('web')->user()->contact_number}}">
+>>>>>>> 121cea587169e6d491fe48a683380231db4358eb
               </div>
               <div class="form-group">
                   <label for="new_password">New Password</label>

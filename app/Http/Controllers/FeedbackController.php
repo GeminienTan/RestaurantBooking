@@ -10,17 +10,12 @@ use Illuminate\Support\Facades\Gate;
 class FeedbackController extends Controller
 {
     function index(){
-        //admin can view all people feedback
-        if (Gate::allows('isAdmin')){
-            $data = Feedback::simplePaginate(7);
-            $count = Feedback::count();
-            return view("feedbackAdmin", ['feedbacks' =>$data, 'counts' =>$count]);    
-        }
-        else{ //user only can see his feedback
+
+     
             $id = Auth::id();
             $feedbacks = Feedback::where('user_id', '=', $id)->get();
             return view('user', ['feedbacks'=>$feedbacks]);
-        }
+        
     }
 
     function store(Request $req){
