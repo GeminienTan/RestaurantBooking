@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
- 
+Route::view('/login', 'login');
+
 Route::get('/', [ItemController::class,'index']);
  
 Route::get('/user', [UserController::class,'index']);
@@ -33,6 +34,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/register/admin',[RegisterController::class,'showAdminRegisterForm']);
 Route::post('/register/admin', [RegisterController::class,'createAdmin']);
 
+
 //feedback CRUD
 Route::post('/addFeedback', [FeedbackController::class, 'store']);
 Route::get('/user', [FeedbackController::class, 'index' ]);
@@ -41,5 +43,8 @@ Route::get('/user', [FeedbackController::class, 'index' ]);
 Route::post('/addReservation', [ReservationController::class, 'store']);
 //Route::get('/user', [ReservationController::class, 'index']);
 
+
 //logout
 Route::get('logout', [LoginController::class, 'logout']);
+
+Route::get("deleteUser/{id}", [UserController::class, 'deleteUser']);

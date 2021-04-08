@@ -69,7 +69,7 @@
         <p><span class="inline-icon material-icons md-18 ">phone</span> <b>Contact Number</b> {{Auth::guard('web')->user()->contact_number}}</p>
         </div>
         <hr>
-        <a href="#" onclick="return confirm('Are you sure?')">Delete Account </a>
+        <a href="{{'deleteUser/'.Auth::guard('web')->user()->id}}" onclick="return confirm('Are you sure?')">Delete Account </a>
         </div>
         <div class="well text-left">
           <div class="text-right">
@@ -250,7 +250,9 @@
                             <textarea class="form-control" id="message" name="message" aria-describedby="messageHelp" rows="4"></textarea>
                             <small id="messageHelp" class="form-text text-muted">Any special requirements. For example: Please prepare a baby chair for me.</small>
                         </div>
-                        <input type="hidden" name="user_id" value="{{Auth::guard('web')->user()->id}}">
+
+                        <input type="hidden" name="id" value="{{Auth::guard('web')->user()->id}}">
+
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>

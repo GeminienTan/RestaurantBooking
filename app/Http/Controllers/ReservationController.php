@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Gate;
@@ -33,7 +32,11 @@ class ReservationController extends Controller
         $reservation->num_of_person = $req->num_of_person;
         $reservation->booking_date = $req->booking_date;
         $reservation->message = $req->message;
+<<<<<<< HEAD
         $reservation->message = $req->message;
+=======
+        $reservation->status = "pending";
+>>>>>>> 86642c43531606db590a21a8f23169d06d5c980e
         $reservation->user_id = $req->id;
         
         $reservation ->save();
