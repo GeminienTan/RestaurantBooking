@@ -17,7 +17,7 @@ class CreateReservationTable extends Migration
             $table->id();
             $table->integer('num_of_person');
             $table->dateTime('booking_date');
-            $table->longText('message');
+            $table->longText('message')->nullable();
             $table->enum('status', ['pending', 'cancel', 'approved','rejected']);
             $table->integer('user_id')->foreign()->references('id')->on('users');
             $table->timestamps();

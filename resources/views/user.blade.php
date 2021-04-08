@@ -64,9 +64,9 @@
         <h4><b><span class="inline-icon material-icons md-24">account_circle</span> My Profile</b></h4>
         <hr>
         <div class="text-left">
-        <p><span class="inline-icon material-icons md-18 ">face</span>  <b>Name</b> </p>
-        <p><span class="inline-icon material-icons md-18 ">email</span> <b>Email</b></p>
-        <p><span class="inline-icon material-icons md-18 ">phone</span> <b>Contact Number</b></p>
+        <p><span class="inline-icon material-icons md-18 ">face</span>  <b>Name</b> {{Auth::guard('web')->user()->name}}</p>
+        <p><span class="inline-icon material-icons md-18 ">email</span> <b>Email</b> {{Auth::guard('web')->user()->email}}</p>
+        <p><span class="inline-icon material-icons md-18 ">phone</span> <b>Contact Number</b> {{Auth::guard('web')->user()->contact_number}}</p>
         </div>
         <hr>
         <a href="#" onclick="return confirm('Are you sure?')">Delete Account </a>
@@ -115,15 +115,15 @@
           @csrf
               <div class="form-group">
                   <label for="name">Name</label>
-                  <input type="text" class="form-control" id="name" name="name" value="">
+                  <input type="text" class="form-control" id="name" name="name" value="{{Auth::guard('web')->user()->name}}">
               </div>
               <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="email" class="form-control" id="email" name="email" value="">
+                  <input type="email" class="form-control" id="email" name="email" value="{{Auth::guard('web')->user()->email}}">
               </div>
               <div class="form-group">
                   <label for="contact_no">Contact Number</label>
-                  <input type="text" class="form-control" id="contact_no" name="contact_no" value="">
+                  <input type="text" class="form-control" id="contact_no" name="contact_no" value="{{Auth::guard('web')->user()->contact_number}}">
               </div>
               <div class="form-group">
                   <label for="old_password">Old Password</label>
@@ -306,6 +306,7 @@
                         <label for="name">Comment</label>
                         <textarea class="form-control" id="comment" name="comment" rows="4"></textarea>
                     </div>
+                    <input type="hidden" name="id" value="{{Auth::guard('web')->user()->id}}">
                     <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>

@@ -32,3 +32,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //register admin
 Route::get('/register/admin',[RegisterController::class,'showAdminRegisterForm']);
 Route::post('/register/admin', [RegisterController::class,'createAdmin']);
+
+//feedback CRUD
+Route::post('/addFeedback', [FeedbackController::class, 'store']);
+
+//logout
+Route::get('logout', [LoginController::class, 'logout']);
