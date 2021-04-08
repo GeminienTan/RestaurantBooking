@@ -43,8 +43,8 @@
                 border-radius: 0;
             }
             .thumbnail img {
-                width: 100%;
-                height: 100%;
+                width: 250px;
+                height:200px;
                 margin-bottom: 10px;
             }
             .carousel-control.right, .carousel-control.left {
@@ -140,6 +140,11 @@
                 padding: 100px 25px;
                 background-image: linear-gradient(to bottom, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.8) 100%), url(https://t4.ftcdn.net/jpg/03/17/07/41/360_F_317074154_SWrR7ihvofoFUwNxbd0z5fF8qh707x3Q.jpg);
                 background-size: cover;
+            }
+            
+            #gallery {
+                margin-bottom:0;
+                background-color: #E5E8E1;
             }
 
             .slideanim {visibility:hidden;}
@@ -336,15 +341,15 @@
             </div>
         </section>
 
-        <!-- Container (Portfolio Section) -->
-        <div id="portfolio" class="container-fluid text-center">
+        <!-- Container (Gallery Section) -->
+        <div id="gallery" class="container-fluid text-center">
         <h2>Gallery</h2><br>
         <div class="row text-center">
             @foreach ($items as $item)
-                @if($item->category == "food")
-            <div class="col-sm-4">
+                @if($item->category == "food" || $item->category == "dessert")
+            <div class="col-sm-3">
             <div class="thumbnail">
-                <img src="{{$item->photo}}" alt="Paris" width="400" height="300">
+                <img src="{{url($item->photo)}}" alt="{{$item->name}}">
                 <p><strong>{{$item->name}}</strong></p>
             </div>
             </div>
