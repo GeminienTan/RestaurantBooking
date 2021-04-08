@@ -23,7 +23,7 @@ class ReservationController extends Controller
         $reservation->booking_date = $req->booking_date;
         $reservation->message = $req->message;
         $reservation->status = "pending";
-        $reservation->user_id = 1;
+        $reservation->user_id = $req->id;
         
         $reservation ->save();
 

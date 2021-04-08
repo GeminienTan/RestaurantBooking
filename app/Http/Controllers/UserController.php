@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Models\Item;
 use App\Models\Reservation;
 use App\Models\Feedback;
-
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -37,10 +37,19 @@ class UserController extends Controller
             $user->remember_token  = $req->remember_token;
             return $user;
         }
-        
+        /*
         public function destroy($id){
             $user=User::findOrFail($id);
             $user->delete();
             return 204;
+        }*/
+        function deleteUser($id)
+        {
+            $data = User::find($id);
+            $data -> delete();
+            if(Gate::allows('isAdmin'))
+                return view('user');
+            else
+                return view('login');
         }
 }
